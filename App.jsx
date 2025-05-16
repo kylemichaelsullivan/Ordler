@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
+
+import Header from './components/Header';
+import Body from './components/Body';
+import Footer from './components/Footer';
+
 import './global.css';
 
 export default function App() {
   return (
-    <View className="flex-1 bg-black items-center justify-center">
-      <Text className="font-bold text-white text-xl">
-        Open up App.jsx to start working on your app
-      </Text>
+    <SafeAreaView className="flex-1 bg-black dark:bg-black">
+      <Header />
+      <Body />
+      <Footer />
       <StatusBar style="light" />
-    </View>
+    </SafeAreaView>
   );
 }
