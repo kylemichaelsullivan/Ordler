@@ -6,7 +6,9 @@ export default function Footer() {
 
   return (
     <View className="flex flex-col items-center justify-center bg-gray-800 p-4 sm:flex-row sm:justify-between">
-      <Text className="text-white text-center">Ordler © {currentYear}</Text>
+      <Text className="text-white font-bold text-center">
+        Ordler © {currentYear}
+      </Text>
       <Reset />
     </View>
   );

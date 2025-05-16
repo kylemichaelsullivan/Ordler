@@ -9,7 +9,7 @@ import './global.css';
 
 export default function App() {
   return (
-    <SafeAreaView className="flex-1 bg-black dark:bg-black">
+    <SafeAreaView className="App flex-1 bg-black dark:bg-black">
       <Header />
       <Body />
       <Footer />
