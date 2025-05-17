@@ -1,4 +1,5 @@
 import { View, Text } from 'react-native';
+
 import Reset from './Reset';
 
 export default function Footer() {

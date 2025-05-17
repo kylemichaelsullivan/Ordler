@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 type ResultsProps = {
-  // Add props here as needed
+  //
 };
 
 const Results = ({}: ResultsProps) => {
