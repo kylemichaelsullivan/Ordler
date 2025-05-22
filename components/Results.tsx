@@ -1,16 +1,22 @@
-import React from 'react';
 import { View, Text } from 'react-native';
+import { useOrdle } from '../context';
+import ResultsContent from './ResultsContent';
+import NoResults from './NoResults';
 
 type ResultsProps = {
-  //
+  className?: string;
 };
 
-const Results = ({}: ResultsProps) => {
+export default function Results({ className }: ResultsProps) {
+  const { filteredWords } = useOrdle();
+
   return (
-    <View className="Results">
-      <Text className="text-gray-900 dark:text-gray-100">Results</Text>
+    <View className={`flex-1 ${className || ''}`}>
+      {filteredWords.length > 0 ? (
+        <ResultsContent words={filteredWords} />
+      ) : (
+        <NoResults />
+      )}
     </View>
   );
-};
-
-export default Results;
+}

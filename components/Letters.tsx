@@ -1,15 +1,15 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
-type LettersProps = {
-  //
-};
+import { letters } from '../types/ordler';
 
-const Letters = ({}: LettersProps) => {
+import Letter from './Letter';
+
+export default function Letters() {
   return (
-    <View className="Letters">
-      <Text className="text-gray-900 dark:text-gray-100">Letters</Text>
+    <View className="flex-row flex-wrap gap-2">
+      {letters.map((letter) => (
+        <Letter key={letter} letter={letter} />
+      ))}
     </View>
   );
-};
-
-export default Letters;
+}
