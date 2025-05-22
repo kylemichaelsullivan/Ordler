@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
+import { OrdleContextProvider } from './context';
 
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,11 +10,15 @@ import './global.css';
 
 export default function App() {
   return (
-    <SafeAreaView className="App flex-1 bg-black dark:bg-black">
-      <Header />
-      <Body />
-      <Footer />
-      <StatusBar style="light" />
-    </SafeAreaView>
+    <OrdleContextProvider>
+      <SafeAreaView className="flex-1 bg-black">
+        <View className="flex-1 max-w-4xl mx-auto w-full">
+          <Header />
+          <Body />
+          <Footer />
+        </View>
+        <StatusBar style="light" />
+      </SafeAreaView>
+    </OrdleContextProvider>
   );
 }

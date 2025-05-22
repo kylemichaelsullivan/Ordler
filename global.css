@@ -6,6 +6,14 @@
   color-scheme: dark;
 }
 
+html {
+  @apply bg-black;
+}
+
+body {
+  @apply bg-black text-white;
+}
+
 .dark {
   color-scheme: dark;
 }
