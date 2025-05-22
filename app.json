@@ -23,8 +23,14 @@
       }
     },
     "web": {
-      "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "bundler": "webpack",
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "build": {
+        "babel": {
+          "include": ["@expo/vector-icons", "react-native-web", "nativewind"]
+        }
+      }
     }
   }
 }
