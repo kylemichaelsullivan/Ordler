@@ -1,0 +1,25 @@
+import { View } from 'react-native';
+import { useOrdle } from '../context';
+import SelectMore from './SelectMore';
+import ResultsList from './ResultsList';
+import NoResults from './NoResults';
+
+type ResultsContentProps = {
+  words: string[];
+};
+
+export default function ResultsContent({ words }: ResultsContentProps) {
+  const { nonNullLettersCount } = useOrdle();
+
+  return (
+    <View className="flex-1 p-4 border rounded-lg shadow-lg">
+      {nonNullLettersCount < 2 ? (
+        <SelectMore />
+      ) : words.length > 0 ? (
+        <ResultsList words={words} />
+      ) : (
+        <NoResults />
+      )}
+    </View>
+  );
+}
