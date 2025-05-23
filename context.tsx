@@ -163,21 +163,27 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
     setRequiredLetterPositions(initialRequiredLetterPositions);
     setFilteredWords(initialFilteredWords);
 
-    document.querySelectorAll('input').forEach((input) => input.blur());
+    if (typeof document !== 'undefined') {
+      document
+        .querySelectorAll('input')
+        .forEach((input: HTMLInputElement) => input.blur());
+    }
   }
 
   useEffect(() => {
-    const handleKeyUp = (e: KeyboardEvent) => {
+    const handleKeyUp = (e: globalThis.KeyboardEvent) => {
       if (e.key === 'Escape') {
         reset();
       }
     };
 
-    window.addEventListener('keyup', handleKeyUp);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keyup', handleKeyUp);
 
-    return () => {
-      window.removeEventListener('keyup', handleKeyUp);
-    };
+      return () => {
+        window.removeEventListener('keyup', handleKeyUp);
+      };
+    }
   }, []);
 
   const value = {
