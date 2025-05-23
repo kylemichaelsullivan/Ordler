@@ -1,9 +1,10 @@
 import { View } from 'react-native';
-import Result from './Result';
 
-interface ResultsListProps {
+import Result from '@/components/Result';
+
+type ResultsListProps = {
   words: string[];
-}
+};
 
 export default function ResultsList({ words }: ResultsListProps) {
   return (

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import type { ChangeEvent, KeyboardEvent } from 'react';
-import type { Letter } from '../types/ordler';
-import WordInput from './WordInput';
+import type { Letter } from '@/types/ordler';
+import WordInput from '@/components/WordInput';
 
 type WordInputsProps = {
   requiredLetterPositions: string[];

@@ -1,8 +1,11 @@
 import { Pressable } from 'react-native';
-import { useOrdle } from '../context';
+
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import { Letter, Status } from '../types/ordler';
+
+import { useOrdle } from '@/context';
+
+import { Letter, Status } from '@/types/ordler';
 
 type LetterButtonDownProps = {
   letter: Letter;

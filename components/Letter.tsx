@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
-import { Letter as LetterType } from '../types/ordler';
-import LetterButtonDown from './LetterButtonDown';
-import LetterButtonUp from './LetterButtonUp';
-import { useOrdle } from '../context';
+import LetterButtonDown from '@/components/LetterButtonDown';
+import LetterButtonUp from '@/components/LetterButtonUp';
+import { useOrdle } from '@/context';
+import { Letter as LetterType } from '@/types/ordler';
 
 type LetterProps = {
   letter: LetterType;

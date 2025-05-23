@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 
-import { letters } from '../types/ordler';
+import Letter from '@/components/Letter';
 
-import Letter from './Letter';
+import { letters } from '@/types/ordler';
 
 export default function Letters() {
   return (

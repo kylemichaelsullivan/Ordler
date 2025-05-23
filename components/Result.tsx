@@ -1,7 +1,7 @@
-interface ResultProps {
+type ResultProps = {
   word: string;
   index: number;
-}
+};
 
 function Result({ word, index }: ResultProps) {
   return (

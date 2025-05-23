@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
-import { useOrdle } from '../context';
-import ResultsContent from './ResultsContent';
-import NoResults from './NoResults';
+import { useOrdle } from '@/context';
+import ResultsContent from '@/components/ResultsContent';
+import NoResults from '@/components/NoResults';
 
 type ResultsProps = {
   className?: string;
