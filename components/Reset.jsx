@@ -1,11 +1,17 @@
-import { TouchableOpacity, Alert } from 'react-native';
+import { TouchableOpacity, Alert, Platform } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 export default function Reset() {
   const handlePress = () => {
-    Alert.alert('Ordler');
+    if (Platform.OS === 'web') {
+      // Web version
+      window.alert('Test Alert\nThis is a test message');
+    } else {
+      // Native version
+      Alert.alert('Test Alert', 'This is a test message');
+    }
   };
 
   return (
