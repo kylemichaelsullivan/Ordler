@@ -9,8 +9,14 @@ module.exports = {
     './app/**/*.{js,jsx,ts,tsx}',
     './pages/**/*.{js,jsx,ts,tsx}',
   ],
+  darkMode: 'media',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--text)',
+      },
+    },
   },
   plugins: [],
   important: true,
