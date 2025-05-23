@@ -13,7 +13,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  important: 'html',
+  important: true,
   corePlugins: {
     preflight: false,
   },

@@ -9,13 +9,18 @@
       "@types/*": ["types/*"]
     },
     "jsx": "react-native",
-    "module": "Node16",
-    "moduleResolution": "node16",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "target": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": true
   },
   "extends": "expo/tsconfig.base"
 }

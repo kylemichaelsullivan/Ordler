@@ -1,8 +1,10 @@
 const { getDefaultConfig } = require('@expo/metro-config');
 
-const config = getDefaultConfig(__dirname);
+const defaultConfig = getDefaultConfig(__dirname);
 
-// Add CSS support
-config.resolver.sourceExts = [...config.resolver.sourceExts, 'css'];
+defaultConfig.resolver.sourceExts = [
+  ...defaultConfig.resolver.sourceExts,
+  'css',
+];
 
-module.exports = config;
+module.exports = defaultConfig;
