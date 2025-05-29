@@ -19,14 +19,14 @@ function WordInput({
 }: WordInputProps) {
   return (
     <input
-      className={`WordInput h-12 w-12 appearance-none border border-black text-center capitalize ${
+      className={`WordInput flex-1 h-12 w-12 appearance-none border border-black text-center capitalize ${
         isRequired ? 'bg-green-400' : ''
       }`}
       maxLength={1}
       list="letters"
       onChange={(e) => onInput(e, index)}
       onKeyDown={(e) => onKeyDown(e, index)}
-      value={value}
+      value={value ?? 'No'}
       ref={inputRef}
     />
   );
