@@ -9,12 +9,26 @@ module.exports = {
     './app/**/*.{js,jsx,ts,tsx}',
     './pages/**/*.{js,jsx,ts,tsx}',
   ],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         background: 'var(--background)',
-        foreground: 'var(--text)',
+        foreground: {
+          DEFAULT: '#111827', // dark mode text
+          dark: '#f3f4f6', // light mode text
+        },
+        gray: {
+          100: '#f3f4f6',
+          400: '#9ca3af',
+          900: '#111827',
+        },
+        red: {
+          400: '#f87171',
+        },
+        green: {
+          400: '#4ade80',
+        },
       },
     },
   },

@@ -6,8 +6,9 @@
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
       "@assets/*": ["assets/*"],
-      "@types/*": ["types/*"],
-      "@data/*": ["data/*"]
+      "@context/*": ["context/*"],
+      "@data/*": ["data/*"],
+      "@types/*": ["types/*"]
     },
     "jsx": "react-native",
     "module": "esnext",
