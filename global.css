@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light dark;
-  --background: #ffffff;
-  --text: #111827;
+  --color-dark: #111827;
+  --color-light: #f3f4f6;
+  --background: var(--color-light);
+  --text: var(--color-dark);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ff0000;
-    --text: #ffffff;
+    --background: var(--color-dark);
+    --text: var(--color-light);
   }
 }
 
 html {
   background-color: var(--background);
+  color-scheme: light dark;
 }
 
 body {
@@ -24,10 +26,31 @@ body {
   color: var(--text);
 }
 
+* {
+  fill: var(--text);
+}
+
+/* Ensure text colors are properly applied */
+.text-foreground {
+  color: var(--text) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
 .dark {
-  color-scheme: dark;
+  --background: var(--color-dark);
+  --text: var(--color-light);
 }
 
 .light {
-  color-scheme: light;
+  --background: var(--color-light);
+  --text: var(--color-dark);
+}
+
+/* React Native Web text styling */
+[dir='auto'] {
+  color: var(--text);
+  background-color: transparent;
 }
