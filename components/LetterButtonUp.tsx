@@ -3,8 +3,9 @@ import { Pressable } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-import { useOrdle } from '@/context';
-import { Letter, Status } from '@/types/ordler';
+import { useOrdle } from '@context/ordler';
+
+import type { Letter, Status } from '@/types/ordler';
 
 type LetterButtonUpProps = {
   letter: Letter;
@@ -22,8 +23,8 @@ export default function LetterButtonUp({
     status === 1
       ? 'text-green-400'
       : status === 0
-        ? 'text-gray-100'
-        : 'text-gray-400';
+        ? 'text-foreground'
+        : 'text-foreground';
 
   return (
     <Pressable onPress={handlePress} className={`p-2 ${statusColor}`}>

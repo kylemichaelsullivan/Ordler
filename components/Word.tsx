@@ -1,4 +1,6 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+import WordInputs from '@components/WordInputs';
 
 type WordProps = {
   //
@@ -6,8 +8,11 @@ type WordProps = {
 
 const Word = ({}: WordProps) => {
   return (
-    <View className="Word">
-      <Text className="text-gray-900 dark:text-gray-100">Word</Text>
+    <View className="Word flex flex-row justify-center items-center">
+      <WordInputs
+        requiredLetterPositions={[]}
+        handleRequiredLetterPositionChange={() => {}}
+      />
     </View>
   );
 };

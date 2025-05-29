@@ -1,7 +1,10 @@
 import { useRef } from 'react';
+
 import type { ChangeEvent, KeyboardEvent } from 'react';
+
+import WordInput from '@components/WordInput';
+
 import type { Letter } from '@/types/ordler';
-import WordInput from '@/components/WordInput';
 
 type WordInputsProps = {
   requiredLetterPositions: string[];
@@ -47,7 +50,7 @@ function WordInputs({
   };
 
   return (
-    <div className="WordInputs flex max-w-full justify-center gap-1">
+    <div className="WordInputs flex items-center justify-center gap-1 max-w-full">
       {Array.from({ length: 5 }, (_, index) => (
         <WordInput
           index={index}

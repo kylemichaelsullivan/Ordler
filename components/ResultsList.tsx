@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import Result from '@/components/Result';
+import Result from '@components/Result';
 
 type ResultsListProps = {
   words: string[];

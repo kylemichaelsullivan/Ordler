@@ -3,9 +3,9 @@ import { Pressable } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
-import { useOrdle } from '@/context';
+import { useOrdle } from '@context/ordler';
 
-import { Letter, Status } from '@/types/ordler';
+import type { Letter, Status } from '@/types/ordler';
 
 type LetterButtonDownProps = {
   letter: Letter;
@@ -23,8 +23,8 @@ export default function LetterButtonDown({
     status === 0
       ? 'text-red-400'
       : status === 1
-        ? 'text-gray-100'
-        : 'text-gray-400';
+        ? 'text-foreground'
+        : 'text-foreground';
 
   return (
     <Pressable onPress={handlePress} className={`p-2 ${statusColor}`}>

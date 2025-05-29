@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import Letter from '@/components/Letter';
+import Letter from '@components/Letter';
 
 import { letters } from '@/types/ordler';
 

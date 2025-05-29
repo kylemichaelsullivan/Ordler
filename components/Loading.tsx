@@ -1,4 +1,4 @@
-import '@/assets/loading.css';
+import '@assets/loading.css';
 
 function Loading() {
   const spinnerDivs = Array.from({ length: 12 }, (_, i) => <div key={i}></div>);

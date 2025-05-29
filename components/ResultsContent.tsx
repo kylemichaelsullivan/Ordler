@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 
-import { useOrdle } from '@/context';
+import { useOrdle } from '@context/ordler';
 
-import SelectMore from '@/components/SelectMore';
-import ResultsList from '@/components/ResultsList';
-import NoResults from '@/components/NoResults';
+import SelectMore from '@components/SelectMore';
+import ResultsList from '@components/ResultsList';
+import NoResults from '@components/NoResults';
 
 type ResultsContentProps = {
   words: string[];
