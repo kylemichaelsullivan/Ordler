@@ -6,8 +6,9 @@ import {
   type ReactNode,
 } from 'react';
 
-import type { Letter, Status } from './types/ordler';
-import { allWords } from './data/allWords';
+import { allWords } from '@data/allWords';
+
+import type { Letter, Status } from '@/types/ordler';
 
 type LettersStatus = {
   [key in Letter]: Status;
