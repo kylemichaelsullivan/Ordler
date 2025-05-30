@@ -6,11 +6,26 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from '@context/theme';
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
+	const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Pressable onPress={toggleTheme} className="p-2 text-foreground">
-      <FontAwesomeIcon icon={theme === 'light' ? faSun : faMoon} size={16} />
-    </Pressable>
-  );
+	return (
+		<Pressable
+			onPress={toggleTheme}
+			className="ThemeToggle p-2"
+			style={({ pressed }) => [
+				{
+					cursor: 'pointer',
+					padding: 8,
+					opacity: pressed ? 0.7 : 1,
+					touchAction: 'manipulation',
+				},
+			]}
+		>
+			<FontAwesomeIcon
+				icon={theme === 'light' ? faSun : faMoon}
+				size={16}
+				color={theme === 'light' ? '#111827' : '#f3f4f6'}
+			/>
+		</Pressable>
+	);
 }

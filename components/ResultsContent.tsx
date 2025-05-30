@@ -7,21 +7,21 @@ import ResultsList from '@components/ResultsList';
 import NoResults from '@components/NoResults';
 
 type ResultsContentProps = {
-  words: string[];
+	words: string[];
 };
 
 export default function ResultsContent({ words }: ResultsContentProps) {
-  const { nonNullLettersCount } = useOrdle();
+	const { nonNullLettersCount } = useOrdle();
 
-  return (
-    <View className="flex-1 p-4 border rounded-lg shadow-lg">
-      {nonNullLettersCount < 2 ? (
-        <SelectMore />
-      ) : words.length > 0 ? (
-        <ResultsList words={words} />
-      ) : (
-        <NoResults />
-      )}
-    </View>
-  );
+	return (
+		<View className="flex-1 rounded-lg border p-4 shadow-lg">
+			{nonNullLettersCount < 2 ? (
+				<SelectMore />
+			) : words.length > 0 ? (
+				<ResultsList words={words} />
+			) : (
+				<NoResults />
+			)}
+		</View>
+	);
 }
