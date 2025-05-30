@@ -6,19 +6,15 @@ import ResultsContent from '@components/ResultsContent';
 import NoResults from '@components/NoResults';
 
 type ResultsProps = {
-  className?: string;
+	className?: string;
 };
 
 export default function Results({ className }: ResultsProps) {
-  const { filteredWords } = useOrdle();
+	const { filteredWords } = useOrdle();
 
-  return (
-    <View className={`flex-1 ${className || ''}`}>
-      {filteredWords.length > 0 ? (
-        <ResultsContent words={filteredWords} />
-      ) : (
-        <NoResults />
-      )}
-    </View>
-  );
+	return (
+		<View className={`flex-1 ${className || ''}`}>
+			{filteredWords.length > 0 ? <ResultsContent words={filteredWords} /> : <NoResults />}
+		</View>
+	);
 }
