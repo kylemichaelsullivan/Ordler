@@ -9,10 +9,7 @@ module.exports = {
     extend: {
       colors: {
         background: 'var(--background)',
-        foreground: {
-          DEFAULT: '#111827', // dark mode text
-          dark: '#f3f4f6', // light mode text
-        },
+        foreground: 'var(--text)',
         gray: {
           100: '#f3f4f6',
           400: '#9ca3af',
