@@ -4,7 +4,7 @@
     "slug": "ordler",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/ordler-icon.png",
     "userInterfaceStyle": "automatic",
     "sdkVersion": "53.0.9",
 
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/ordler-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
