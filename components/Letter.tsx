@@ -8,20 +8,24 @@ import LetterButtonUp from '@components/LetterButtonUp';
 import type { Letter as LetterType } from '@/types/ordler';
 
 type LetterProps = {
-  letter: LetterType;
+	letter: LetterType;
 };
 
 export default function Letter({ letter }: LetterProps) {
-  const { lettersStatus } = useOrdle();
-  const status = lettersStatus[letter];
+	const { lettersStatus } = useOrdle();
+	const status = lettersStatus[letter];
 
-  return (
-    <View className="flex-row items-center gap-1">
-      <LetterButtonDown letter={letter} status={status} />
-      <Text className="text-foreground text-lg font-bold">
-        {letter.toUpperCase()}
-      </Text>
-      <LetterButtonUp letter={letter} status={status} />
-    </View>
-  );
+	return (
+		<View className="flex-row items-center gap-1">
+			<LetterButtonDown
+				letter={letter}
+				status={status}
+			/>
+			<Text className="text-lg font-bold text-foreground">{letter.toUpperCase()}</Text>
+			<LetterButtonUp
+				letter={letter}
+				status={status}
+			/>
+		</View>
+	);
 }
