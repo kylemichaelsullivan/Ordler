@@ -30,7 +30,6 @@ body {
   fill: var(--text);
 }
 
-/* Ensure text colors are properly applied */
 .text-foreground {
   color: var(--text) !important;
 }
