@@ -8,12 +8,15 @@ type LettersStatus = {
 	[key in Letter]: Status;
 };
 
-type OrdleContextType = {
+type OrdleState = {
 	lettersStatus: LettersStatus;
 	nonNullLettersCount: number;
 	requiredLetters: Letter[];
 	requiredLetterPositions: (Letter | '')[];
 	filteredWords: string[];
+};
+
+type OrdleContextType = OrdleState & {
 	handleLettersStatusChange: (letter: Letter, status: Status) => void;
 	handleRequiredLetterPositionChange: (index: number, letter: Letter | '') => void;
 	reset: () => void;
@@ -54,65 +57,21 @@ const initialLettersStatus: LettersStatus = {
 	z: null,
 };
 
-const initialNonNullLettersCount = 0;
+const initialState: OrdleState = {
+	lettersStatus: initialLettersStatus,
+	nonNullLettersCount: 0,
+	requiredLetters: [],
+	requiredLetterPositions: ['', '', '', '', ''],
+	filteredWords: [],
+};
 
-const initialRequiredLetters: Letter[] = [];
-
-const initialRequiredLetterPositions: (Letter | '')[] = ['', '', '', '', ''];
-
-const initialFilteredWords: string[] = [];
-
-export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
-	const [lettersStatus, setLettersStatus] = useState<LettersStatus>(initialLettersStatus);
-
-	const [nonNullLettersCount, setNonNullLettersCount] = useState(initialNonNullLettersCount);
-
-	const [requiredLetters, setRequiredLetters] = useState<Letter[]>(initialRequiredLetters);
-
-	const [requiredLetterPositions, setRequiredLetterPositions] = useState<(Letter | '')[]>(
-		initialRequiredLetterPositions
-	);
-
-	const [filteredWords, setFilteredWords] = useState<string[]>(initialFilteredWords);
-
-	function filterWordsByLetters(word: string) {
-		return Object.entries(lettersStatus).every(([letter, status]) => {
-			if (status === 1) {
-				return word.includes(letter);
-			} else if (status === 0) {
-				return !word.includes(letter);
-			}
-			return true;
-		});
-	}
-
-	function handleLettersStatusChange(letter: Letter, status: Status) {
-		setLettersStatus(prevStatus => ({
-			...prevStatus,
-			[letter]: lettersStatus[letter] === status ? null : status,
-		}));
-	}
-
-	function handleRequiredLetterPositionChange(index: number, letter: Letter | '') {
-		setRequiredLetterPositions(prevPositions => {
-			const newPositions = [...prevPositions];
-			const prevLetter = newPositions[index];
-			newPositions[index] = letter;
-
-			setLettersStatus(prevStatus => {
-				const newStatus = { ...prevStatus };
-				if (prevLetter) {
-					newStatus[prevLetter] = null;
-				}
-				if (letter) {
-					newStatus[letter] = 1;
-				}
-				return newStatus;
-			});
-
-			return newPositions;
-		});
-	}
+const useWordFiltering = (
+	lettersStatus: LettersStatus,
+	requiredLetterPositions: (Letter | '')[]
+) => {
+	const [filteredWords, setFilteredWords] = useState<string[]>([]);
+	const [requiredLetters, setRequiredLetters] = useState<Letter[]>([]);
+	const [nonNullLettersCount, setNonNullLettersCount] = useState(0);
 
 	useEffect(() => {
 		const count = Object.values(lettersStatus).filter(status => status !== null).length;
@@ -120,7 +79,13 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
 
 		if (count >= 2) {
 			const newFilteredWords = allWords
-				.filter(filterWordsByLetters)
+				.filter(word =>
+					Object.entries(lettersStatus).every(([letter, status]) => {
+						if (status === 1) return word.includes(letter);
+						if (status === 0) return !word.includes(letter);
+						return true;
+					})
+				)
 				.filter(word =>
 					requiredLetterPositions.every((letter, index) => !letter || word[index] === letter)
 				);
@@ -135,18 +100,10 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
 		setRequiredLetters(newRequiredLetters);
 	}, [lettersStatus, requiredLetterPositions]);
 
-	function reset() {
-		setLettersStatus(initialLettersStatus);
-		setNonNullLettersCount(initialNonNullLettersCount);
-		setRequiredLetters(initialRequiredLetters);
-		setRequiredLetterPositions(initialRequiredLetterPositions);
-		setFilteredWords(initialFilteredWords);
+	return { filteredWords, requiredLetters, nonNullLettersCount };
+};
 
-		if (typeof document !== 'undefined') {
-			document.querySelectorAll('input').forEach((input: HTMLInputElement) => input.blur());
-		}
-	}
-
+const useKeyboardReset = (reset: () => void) => {
 	useEffect(() => {
 		const handleKeyUp = (e: globalThis.KeyboardEvent) => {
 			if (e.key === 'Escape') {
@@ -156,19 +113,64 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
 
 		if (typeof window !== 'undefined') {
 			window.addEventListener('keyup', handleKeyUp);
-
-			return () => {
-				window.removeEventListener('keyup', handleKeyUp);
-			};
+			return () => window.removeEventListener('keyup', handleKeyUp);
 		}
-	}, []);
+	}, [reset]);
+};
+
+export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
+	const [state, setState] = useState<OrdleState>(initialState);
+	const { filteredWords, requiredLetters, nonNullLettersCount } = useWordFiltering(
+		state.lettersStatus,
+		state.requiredLetterPositions
+	);
+
+	const handleLettersStatusChange = (letter: Letter, status: Status) => {
+		setState(prev => ({
+			...prev,
+			lettersStatus: {
+				...prev.lettersStatus,
+				[letter]: prev.lettersStatus[letter] === status ? null : status,
+			},
+		}));
+	};
+
+	const handleRequiredLetterPositionChange = (index: number, letter: Letter | '') => {
+		setState(prev => {
+			const newPositions = [...prev.requiredLetterPositions];
+			const prevLetter = newPositions[index];
+			newPositions[index] = letter;
+
+			const newLettersStatus = { ...prev.lettersStatus };
+			if (prevLetter) {
+				newLettersStatus[prevLetter] = null;
+			}
+			if (letter) {
+				newLettersStatus[letter] = 1;
+			}
+
+			return {
+				...prev,
+				requiredLetterPositions: newPositions,
+				lettersStatus: newLettersStatus,
+			};
+		});
+	};
+
+	const reset = () => {
+		setState(initialState);
+		if (typeof document !== 'undefined') {
+			document.querySelectorAll('input').forEach((input: HTMLInputElement) => input.blur());
+		}
+	};
+
+	useKeyboardReset(reset);
 
 	const value = {
-		lettersStatus,
-		nonNullLettersCount,
-		requiredLetters,
-		requiredLetterPositions,
+		...state,
 		filteredWords,
+		requiredLetters,
+		nonNullLettersCount,
 		handleLettersStatusChange,
 		handleRequiredLetterPositionChange,
 		reset,
