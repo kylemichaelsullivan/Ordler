@@ -10,11 +10,11 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@expo/metro-config": "~0.20.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.0",
     "@fortawesome/react-native-fontawesome": "^0.3.2",
     "expo": "^53.0.9",
+    "expo-router": "^5.0.7",
     "expo-status-bar": "~2.2.3",
     "metro": "^0.82.0",
     "metro-core": "^0.82.0",
