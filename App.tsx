@@ -2,13 +2,16 @@ import { SafeAreaView, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import { ThemeProvider, useTheme } from '@context/theme';
-import { OrdleContextProvider } from '@context/ordler';
+import { OrdlerContextProvider } from '@context/ordler';
 
 import Header from '@components/Header';
 import Body from '@components/Body';
 import Footer from '@components/Footer';
 
+import { NativeWindStyleSheet } from 'nativewind';
+
 import '@/global.css';
+NativeWindStyleSheet.create({});
 
 const AppContent = () => {
 	const { theme } = useTheme();
@@ -28,9 +31,9 @@ const AppContent = () => {
 const App = () => {
 	return (
 		<ThemeProvider>
-			<OrdleContextProvider>
+			<OrdlerContextProvider>
 				<AppContent />
-			</OrdleContextProvider>
+			</OrdlerContextProvider>
 		</ThemeProvider>
 	);
 };
