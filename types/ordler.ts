@@ -28,6 +28,11 @@ export type Letter =
 
 export type Status = null | 0 | 1;
 
+export type LetterButtonProps = {
+	letter: Letter;
+	status: Status;
+};
+
 export const letters: Letter[] = [
 	'a',
 	'b',
