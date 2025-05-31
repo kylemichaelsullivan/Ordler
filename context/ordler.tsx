@@ -8,7 +8,7 @@ type LettersStatus = {
 	[key in Letter]: Status;
 };
 
-type OrdleState = {
+type OrdlerState = {
 	lettersStatus: LettersStatus;
 	nonNullLettersCount: number;
 	requiredLetters: Letter[];
@@ -16,15 +16,15 @@ type OrdleState = {
 	filteredWords: string[];
 };
 
-type OrdleContextType = OrdleState & {
+type OrdlerContextType = OrdlerState & {
 	handleLettersStatusChange: (letter: Letter, status: Status) => void;
 	handleRequiredLetterPositionChange: (index: number, letter: Letter | '') => void;
 	reset: () => void;
 };
 
-const OrdleContext = createContext<OrdleContextType | undefined>(undefined);
+const OrdlerContext = createContext<OrdlerContextType | undefined>(undefined);
 
-type OrdleContextProviderProps = {
+type OrdlerContextProviderProps = {
 	children: ReactNode;
 };
 
@@ -57,7 +57,7 @@ const initialLettersStatus: LettersStatus = {
 	z: null,
 };
 
-const initialState: OrdleState = {
+const initialState: OrdlerState = {
 	lettersStatus: initialLettersStatus,
 	nonNullLettersCount: 0,
 	requiredLetters: [],
@@ -118,8 +118,8 @@ const useKeyboardReset = (reset: () => void) => {
 	}, [reset]);
 };
 
-export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
-	const [state, setState] = useState<OrdleState>(initialState);
+export function OrdlerContextProvider({ children }: OrdlerContextProviderProps) {
+	const [state, setState] = useState<OrdlerState>(initialState);
 	const { filteredWords, requiredLetters, nonNullLettersCount } = useWordFiltering(
 		state.lettersStatus,
 		state.requiredLetterPositions
@@ -176,13 +176,13 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
 		reset,
 	};
 
-	return <OrdleContext.Provider value={value}>{children}</OrdleContext.Provider>;
+	return <OrdlerContext.Provider value={value}>{children}</OrdlerContext.Provider>;
 }
 
 export function useOrdler() {
-	const context = useContext(OrdleContext);
+	const context = useContext(OrdlerContext);
 	if (context === undefined) {
-		throw new Error('useOrdler must be used within an OrdleContextProvider');
+		throw new Error('useOrdler must be used within an OrdlerContextProvider');
 	}
 	return context;
 }
