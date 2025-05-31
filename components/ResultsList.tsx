@@ -6,16 +6,14 @@ type ResultsListProps = {
 	words: string[];
 };
 
-export default function ResultsList({ words }: ResultsListProps) {
+const ResultsList = ({ words }: ResultsListProps) => {
 	return (
-		<View className="flex-1">
+		<View className='flex-1'>
 			{words.map((word, index) => (
-				<Result
-					key={index}
-					word={word}
-					index={index}
-				/>
+				<Result key={index} word={word} />
 			))}
 		</View>
 	);
-}
+};
+
+export default ResultsList;

@@ -179,10 +179,10 @@ export function OrdleContextProvider({ children }: OrdleContextProviderProps) {
 	return <OrdleContext.Provider value={value}>{children}</OrdleContext.Provider>;
 }
 
-export function useOrdle() {
+export function useOrdler() {
 	const context = useContext(OrdleContext);
 	if (context === undefined) {
-		throw new Error('useOrdle must be used within an OrdleContextProvider');
+		throw new Error('useOrdler must be used within an OrdleContextProvider');
 	}
 	return context;
 }

@@ -1,17 +1,9 @@
 type ResultProps = {
 	word: string;
-	index: number;
 };
 
-function Result({ word, index }: ResultProps) {
-	return (
-		<li
-			className="Result"
-			key={index}
-		>
-			{word}
-		</li>
-	);
-}
+const Result = ({ word }: ResultProps) => {
+	return <li className='Result'>{word}</li>;
+};
 
 export default Result;

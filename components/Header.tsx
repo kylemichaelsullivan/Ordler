@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import Reset from '@/components/Reset';
 import ThemeToggle from '@components/ThemeToggle';
 
-export default function Header() {
+const Header = () => {
 	return (
 		<View className='Header bg-background/5 flex flex-row items-center justify-between p-4'>
 			<Reset />
@@ -11,4 +11,6 @@ export default function Header() {
 			<ThemeToggle />
 		</View>
 	);
-}
+};
+
+export default Header;

@@ -1,9 +1,11 @@
 import '@assets/loading.css';
 
-function Loading() {
-	const spinnerDivs = Array.from({ length: 12 }, (_, i) => <div key={i}></div>);
-
-	return <div className="Loading mx-auto">{spinnerDivs}</div>;
-}
+const Loading = () => (
+	<div className='Loading mx-auto'>
+		{Array.from({ length: 12 }, (_, i) => (
+			<div key={i} />
+		))}
+	</div>
+);
 
 export default Loading;

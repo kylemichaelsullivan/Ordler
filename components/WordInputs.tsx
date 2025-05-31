@@ -11,10 +11,10 @@ type WordInputsProps = {
 	handleRequiredLetterPositionChange: (index: number, letter: Letter | '') => void;
 };
 
-function WordInputs({
+const WordInputs = ({
 	requiredLetterPositions,
 	handleRequiredLetterPositionChange,
-}: WordInputsProps) {
+}: WordInputsProps) => {
 	const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
 	const handleInput = (e: ChangeEvent<HTMLInputElement>, index: number) => {
@@ -47,7 +47,7 @@ function WordInputs({
 	};
 
 	return (
-		<div className="WordInputs flex max-w-full items-center justify-center gap-1">
+		<div className='WordInputs flex max-w-full items-center justify-center gap-1'>
 			{Array.from({ length: 5 }, (_, index) => (
 				<WordInput
 					index={index}
@@ -63,6 +63,6 @@ function WordInputs({
 			))}
 		</div>
 	);
-}
+};
 
 export default WordInputs;

@@ -1,19 +1,19 @@
-import { View } from 'react-native';
+import { useOrdler } from '@context/ordler';
+import WordInputs from './WordInputs';
+import LetterList from './LetterList';
 
-import WordInputs from '@components/WordInputs';
+const Word = () => {
+	const { requiredLetters, requiredLetterPositions, handleRequiredLetterPositionChange } =
+		useOrdler();
 
-type WordProps = {
-	//
-};
-
-const Word = ({}: WordProps) => {
 	return (
-		<View className="Word flex flex-row items-center justify-center">
+		<div className='Word flex max-w-full justify-center gap-1'>
 			<WordInputs
-				requiredLetterPositions={[]}
-				handleRequiredLetterPositionChange={() => {}}
+				requiredLetterPositions={requiredLetterPositions}
+				handleRequiredLetterPositionChange={handleRequiredLetterPositionChange}
 			/>
-		</View>
+			<LetterList letters={requiredLetters} />
+		</div>
 	);
 };
 

@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import { useOrdle } from '@context/ordler';
+import { useOrdler } from '@context/ordler';
 
 import SelectMore from '@components/SelectMore';
 import ResultsList from '@components/ResultsList';
@@ -10,18 +10,18 @@ type ResultsContentProps = {
 	words: string[];
 };
 
-export default function ResultsContent({ words }: ResultsContentProps) {
-	const { nonNullLettersCount } = useOrdle();
+const ResultsContent = ({ words }: ResultsContentProps) => {
+	const { nonNullLettersCount } = useOrdler();
 
 	return (
-		<View className="flex-1 rounded-lg border p-4 shadow-lg">
-			{nonNullLettersCount < 2 ? (
+		<View className='flex-1 rounded-lg border p-4 shadow-lg'>
+			{nonNullLettersCount < 2 ?
 				<SelectMore />
-			) : words.length > 0 ? (
+			: words.length > 0 ?
 				<ResultsList words={words} />
-			) : (
-				<NoResults />
-			)}
+			:	<NoResults />}
 		</View>
 	);
-}
+};
+
+export default ResultsContent;

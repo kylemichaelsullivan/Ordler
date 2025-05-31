@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 
-export default function NoResults() {
-	return (
-		<View className="flex-1 items-center justify-center">
-			<Text className="dark:text-foreground-dark text-foreground">No words found</Text>
-		</View>
-	);
-}
+const NoResults = () => (
+	<Text className='flex-1 items-center justify-center dark:text-foreground-dark text-foreground'>
+		No words found
+	</Text>
+);
+
+export default NoResults;

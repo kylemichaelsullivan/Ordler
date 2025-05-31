@@ -5,13 +5,13 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import { useTheme } from '@context/theme';
 
-export default function ThemeToggle() {
+const ThemeToggle = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
 		<Pressable
 			onPress={toggleTheme}
-			className="ThemeToggle p-2"
+			className='ThemeToggle p-2'
 			style={({ pressed }) => [
 				{
 					cursor: 'pointer',
@@ -28,4 +28,6 @@ export default function ThemeToggle() {
 			/>
 		</Pressable>
 	);
-}
+};
+
+export default ThemeToggle;
