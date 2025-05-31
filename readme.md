@@ -14,7 +14,7 @@ This is a mobile application built using **React Native**, **Expo**, and **Nativ
 Make sure you have the following installed:
 
 - **Node.js** (v14 or newer)
-- **npm** or **pnpm** package manager
+- **npm** package manager
 - **Expo CLI**: Install via `npm install -g expo-cli`
 
 ## Getting Started
@@ -42,12 +42,6 @@ Launch the Expo development server with:
 npm start
 ```
 
-#### OR
-
-```bash
-pnpm start
-```
-
 This will start the Expo development environment, where you can preview the app on an emulator or physical device.
 
 ## Project Structure
@@ -70,15 +64,11 @@ This will start the Expo development environment, where you can preview the app 
    ```js
    // tailwind.config.js
    module.exports = {
-     content: [
-       './App.js',
-       './screens/**/*.{js,jsx,ts,tsx}',
-       './components/**/*.{js,jsx,ts,tsx}',
-     ],
-     theme: {
-       extend: {},
-     },
-     plugins: [],
+   	content: ['./App.js', './screens/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+   	theme: {
+   		extend: {},
+   	},
+   	plugins: [],
    };
    ```
 
@@ -87,5 +77,5 @@ This will start the Expo development environment, where you can preview the app 
 
 ## Scripts
 
-- **`pnpm start`** - Start the Expo development server
-- **`pnpm build`** - Build the app for production
+- **`npm start`** - Start the Expo development server
+- **`npm build`** - Build the app for production
