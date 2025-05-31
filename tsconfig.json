@@ -7,8 +7,7 @@
 			"@screens/*": ["screens/*"],
 			"@assets/*": ["assets/*"],
 			"@context/*": ["context/*"],
-			"@data/*": ["data/*"],
-			"@types/*": ["types/*"]
+			"@data/*": ["data/*"]
 		},
 		"jsx": "react-native",
 		"module": "esnext",
@@ -24,5 +23,5 @@
 		"noEmit": true,
 		"isolatedModules": true
 	},
-	"extends": "expo/tsconfig.base"
+	"extends": "./node_modules/expo/tsconfig.base"
 }

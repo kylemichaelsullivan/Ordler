@@ -1,7 +1,3 @@
 module.exports = {
-  plugins: {
-    'nativewind/postcss': {
-      output: 'nativewind-output.js',
-    },
-  },
+	plugins: [require('tailwindcss'), require('autoprefixer'), require('nativewind/postcss')],
 };
