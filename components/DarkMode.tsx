@@ -5,13 +5,13 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import { useTheme } from '@context/theme';
 
-const ThemeToggle = () => {
-	const { theme, toggleTheme } = useTheme();
+const DarkMode = () => {
+	const { isDarkMode, toggleDarkMode } = useTheme();
 
 	return (
 		<Pressable
-			onPress={toggleTheme}
-			className='ThemeToggle p-2'
+			onPress={toggleDarkMode}
+			className='DarkMode has-black-fill p-2'
 			style={({ pressed }) => [
 				{
 					cursor: 'pointer',
@@ -21,13 +21,9 @@ const ThemeToggle = () => {
 				},
 			]}
 		>
-			<FontAwesomeIcon
-				icon={theme === 'light' ? faSun : faMoon}
-				size={16}
-				color={theme === 'light' ? '#111827' : '#f3f4f6'}
-			/>
+			<FontAwesomeIcon icon={isDarkMode ? faMoon : faSun} color='currentColor' size={16} />
 		</Pressable>
 	);
 };
 
-export default ThemeToggle;
+export default DarkMode;

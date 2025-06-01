@@ -31,5 +31,5 @@ module.exports = {
 	experimental: {
 		optimizeUniversalDefaults: true,
 	},
-	safelist: ['bg-black', 'flex-1', 'items-center', 'justify-center'],
+	safelist: ['flex-1', 'items-center', 'justify-center'],
 };

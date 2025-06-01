@@ -3,57 +3,214 @@
 @tailwind utilities;
 
 :root {
-	--color-dark: #111827;
-	--color-light: #f3f4f6;
+	--color-white: #f8f8f8;
+	--color-light: #e6e7eb;
+	--color-neutral: #818384;
+	--color-dark: #585c66;
+	--color-black: #121213;
 
-	--background: var(--color-light);
-	--text: var(--color-dark);
-	color-scheme: light;
+	--color-red: #dc2626;
+	--color-yellow: #d1b036;
+	--color-green: #6aaa64;
+
+	--tw-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: var(--color-dark);
-		--text: var(--color-light);
-		color-scheme: dark;
-	}
+/* Light mode colors */
+.has-white-background-color {
+	background-color: #f8f8f8;
 }
 
-html {
-	background-color: var(--background);
-	color-scheme: light dark;
+.has-white-border-color {
+	border-color: #f8f8f8;
 }
 
-body {
-	background-color: var(--background);
-	color: var(--text);
+.has-white-color {
+	color: #f8f8f8;
 }
 
-* {
-	fill: var(--text);
+.has-white-fill {
+	fill: #f8f8f8;
 }
 
-.text-foreground {
-	color: var(--text) !important;
+.has-light-background-color {
+	background-color: #e6e7eb;
 }
 
-.bg-background {
-	background-color: var(--background) !important;
+.has-light-border-color {
+	border-color: #e6e7eb;
 }
 
-/* Manual theme switching - takes precedence over system preference */
-.dark {
-	--background: var(--color-dark);
-	--text: var(--color-light);
+.has-light-color {
+	color: #e6e7eb;
 }
 
-.light {
-	--background: var(--color-light);
-	--text: var(--color-dark);
+.has-light-fill {
+	fill: #e6e7eb;
+}
+
+.has-neutral-background-color {
+	background-color: #818384;
+}
+
+.has-neutral-border-color {
+	border-color: #818384;
+}
+
+.has-neutral-color {
+	color: #818384;
+}
+
+.has-neutral-fill {
+	fill: #818384;
+}
+
+.has-dark-background-color {
+	background-color: #585c66;
+}
+
+.has-dark-border-color {
+	border-color: #585c66;
+}
+
+.has-dark-color {
+	color: #585c66;
+}
+
+.has-dark-fill {
+	fill: #585c66;
+}
+
+.has-black-background-color {
+	background-color: #121213;
+}
+
+.has-black-border-color {
+	border-color: #121213;
+}
+
+.has-black-color {
+	color: #121213;
+}
+
+.has-black-fill {
+	fill: #121213;
+}
+
+.has-red-background-color {
+	background-color: #dc2626;
+}
+
+.has-red-border-color {
+	border-color: #dc2626;
+}
+
+.has-red-color {
+	color: #dc2626;
+}
+
+.has-red-fill {
+	fill: #dc2626;
+}
+
+.has-yellow-background-color {
+	background-color: #d1b036;
+}
+
+.has-yellow-border-color {
+	border-color: #d1b036;
+}
+
+.has-yellow-color {
+	color: #d1b036;
+}
+
+.has-yellow-fill {
+	fill: #d1b036;
+}
+
+.has-green-background-color {
+	background-color: #6aaa64;
+}
+
+.has-green-border-color {
+	border-color: #6aaa64;
+}
+
+.has-green-color {
+	color: #6aaa64;
+}
+
+.has-green-fill {
+	fill: #6aaa64;
+}
+
+/* Dark mode colors */
+.dark .has-white-background-color {
+	background-color: #121213;
+}
+
+.dark .has-white-border-color {
+	border-color: #121213;
+}
+
+.dark .has-white-color {
+	color: #121213;
+}
+
+.dark .has-white-fill {
+	fill: #121213;
+}
+
+.dark .has-light-background-color {
+	background-color: #585c66;
+}
+
+.dark .has-light-border-color {
+	border-color: #585c66;
+}
+
+.dark .has-light-color {
+	color: #585c66;
+}
+
+.dark .has-light-fill {
+	fill: #585c66;
+}
+
+.dark .has-dark-background-color {
+	background-color: #e6e7eb;
+}
+
+.dark .has-dark-border-color {
+	border-color: #e6e7eb;
+}
+
+.dark .has-dark-color {
+	color: #e6e7eb;
+}
+
+.dark .has-dark-fill {
+	fill: #e6e7eb;
+}
+
+.dark .has-black-background-color {
+	background-color: #f8f8f8;
+}
+
+.dark .has-black-border-color {
+	border-color: #f8f8f8;
+}
+
+.dark .has-black-color {
+	color: #f8f8f8;
+}
+
+.dark .has-black-fill {
+	fill: #f8f8f8;
 }
 
 /* React Native Web text styling */
 [dir='auto'] {
-	color: var(--text);
 	background-color: transparent;
 }
