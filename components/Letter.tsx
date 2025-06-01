@@ -16,9 +16,9 @@ const Letter = ({ letter }: LetterProps) => {
 	const status = lettersStatus[letter];
 
 	return (
-		<View className='flex-row items-center gap-1'>
+		<View className='Letter flex-row items-center gap-1'>
 			<LetterButtonDown letter={letter} status={status} />
-			<Text className='text-lg font-bold text-foreground'>{letter.toUpperCase()}</Text>
+			<Text className='has-black-color text-lg font-bold'>{letter.toUpperCase()}</Text>
 			<LetterButtonUp letter={letter} status={status} />
 		</View>
 	);

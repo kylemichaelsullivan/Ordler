@@ -3,7 +3,7 @@ type ResultProps = {
 };
 
 const Result = ({ word }: ResultProps) => {
-	return <li className='Result'>{word}</li>;
+	return <li className='Result has-black-color'>{word}</li>;
 };
 
 export default Result;

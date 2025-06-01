@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
 
 const Copyright = () => (
-	<Text className='text-center font-bold text-foreground'>
+	<Text className='Copyright has-black-color text-center font-bold'>
 		Ordler © {new Date().getFullYear()}
 	</Text>
 );

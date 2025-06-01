@@ -8,7 +8,7 @@ type ResultsListProps = {
 
 const ResultsList = ({ words }: ResultsListProps) => {
 	return (
-		<View className='flex-1'>
+		<View className='ResultsList flex-1'>
 			{words.map((word, index) => (
 				<Result key={index} word={word} />
 			))}

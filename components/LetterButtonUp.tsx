@@ -11,14 +11,11 @@ const LetterButtonUp = ({ letter, status }: LetterButtonProps) => {
 	const { handleLettersStatusChange } = useOrdler();
 	const handlePress = () => handleLettersStatusChange(letter, 1);
 
-	const statusColor =
-		status === 1 ? 'text-green-400'
-		: status === 0 ? 'text-foreground'
-		: 'text-foreground';
+	const statusColor = status === 1 ? 'has-green-fill' : 'has-dark-fill';
 
 	return (
-		<Pressable onPress={handlePress} className={`p-2 ${statusColor}`}>
-			<FontAwesomeIcon icon={faThumbsUp} size={16} />
+		<Pressable onPress={handlePress} className={`LetterButtonUp ${statusColor} p-2`}>
+			<FontAwesomeIcon icon={faThumbsUp} color='currentColor' size={16} />
 		</Pressable>
 	);
 };

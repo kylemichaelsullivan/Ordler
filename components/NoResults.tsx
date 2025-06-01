@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
 
 const NoResults = () => (
-	<Text className='flex-1 items-center justify-center dark:text-foreground-dark text-foreground'>
+	<Text className='NoResults has-black-color flex-1 items-center justify-center'>
 		No words found
 	</Text>
 );

@@ -1,16 +1,16 @@
 import { View, Text } from 'react-native';
 
 import Reset from '@/components/Reset';
-import ThemeToggle from '@components/ThemeToggle';
+import DarkMode from '@/components/DarkMode';
 
 const Header = () => {
 	return (
-		<View className='Header bg-background/5 flex flex-row items-center justify-between p-4'>
+		<View className='Header has-light-background-color has-dark-border-color flex flex-row items-center justify-between border-b p-4'>
 			<Reset />
-			<Text className='flex-1 text-center text-2xl font-bold text-foreground sm:text-4xl'>
+			<Text className='flex-1 text-center text-2xl font-bold has-black-color sm:text-4xl'>
 				Ordler
 			</Text>
-			<ThemeToggle />
+			<DarkMode />
 		</View>
 	);
 };

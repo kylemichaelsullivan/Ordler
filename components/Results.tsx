@@ -13,7 +13,9 @@ const Results = ({ className }: ResultsProps) => {
 	const { filteredWords } = useOrdler();
 
 	return (
-		<View className={`flex-1 ${className || ''}`}>
+		<View
+			className={`Results has-light-background-color has-dark-border-color flex-1 border p-4 ${className || ''}`}
+		>
 			{filteredWords.length > 0 ?
 				<ResultsContent words={filteredWords} />
 			:	<NoResults />}

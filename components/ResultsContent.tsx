@@ -14,7 +14,7 @@ const ResultsContent = ({ words }: ResultsContentProps) => {
 	const { nonNullLettersCount } = useOrdler();
 
 	return (
-		<View className='flex-1 rounded-lg border p-4 shadow-lg'>
+		<View className='ResultsContent has-light-background-color has-dark-border-color flex-1 rounded-lg border p-4 shadow-lg'>
 			{nonNullLettersCount < 2 ?
 				<SelectMore />
 			: words.length > 0 ?

@@ -12,8 +12,8 @@ type WordInputProps = {
 const WordInput = ({ index, value, isRequired, inputRef, onInput, onKeyDown }: WordInputProps) => {
 	return (
 		<input
-			className={`WordInput h-12 w-12 flex-1 appearance-none border border-black text-center capitalize ${
-				isRequired ? 'bg-green-400' : ''
+			className={`WordInput has-dark-border-color has-black-color h-12 w-12 flex-1 appearance-none border text-center capitalize ${
+				isRequired ? 'has-green-background-color' : 'has-light-background-color'
 			}`}
 			maxLength={1}
 			list='letters'

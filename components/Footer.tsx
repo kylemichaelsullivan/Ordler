@@ -5,7 +5,7 @@ import Reset from '@components/Reset';
 
 const Footer = () => {
 	return (
-		<View className='bg-background/5 flex flex-col items-center justify-center p-4 sm:flex-row sm:justify-between'>
+		<View className='Footer has-light-background-color has-dark-border-color flex flex-row items-center justify-between border-t p-4'>
 			<Copyright />
 			<Reset />
 		</View>
