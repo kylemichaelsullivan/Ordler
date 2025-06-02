@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext, type ReactNode } from 'react';
 
-import { allWords } from '@data/allWords';
+import { allWords } from '@/data/allWords';
 
 import type { Letter, Status } from '@/types/ordler';
 

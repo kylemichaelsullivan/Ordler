@@ -3,7 +3,7 @@ import { Pressable } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-import { useOrdler } from '@context/ordler';
+import { useOrdler } from '@/context/ordler';
 
 import type { LetterButtonProps } from '@/types/ordler';
 

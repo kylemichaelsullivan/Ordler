@@ -1,12 +1,12 @@
 import { SafeAreaView, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-import { ThemeProvider, useTheme } from '@context/theme';
-import { OrdlerContextProvider } from '@context/ordler';
+import { ThemeProvider, useTheme } from '@/context/theme';
+import { OrdlerContextProvider } from '@/context/ordler';
 
-import Header from '@components/Header';
-import Body from '@components/Body';
-import Footer from '@components/Footer';
+import Header from '@/components/header/Header';
+import Body from '@/components/body/Body';
+import Footer from '@/components/footer/Footer';
 
 import { NativeWindStyleSheet } from 'nativewind';
 

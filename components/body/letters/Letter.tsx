@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native';
 
-import { useOrdler } from '@context/ordler';
+import { useOrdler } from '@/context/ordler';
 
-import LetterButtonDown from '@components/LetterButtonDown';
-import LetterButtonUp from '@components/LetterButtonUp';
+import LetterButtonDown from '@/components/buttons/LetterButtonDown';
+import LetterButtonUp from '@/components/buttons/LetterButtonUp';
 
 import type { Letter as LetterType } from '@/types/ordler';
 

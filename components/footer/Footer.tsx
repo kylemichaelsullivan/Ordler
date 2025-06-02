@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 
-import Copyright from '@components/Copyright';
-import Reset from '@components/Reset';
+import Copyright from './Copyright';
+import Reset from '@/components/buttons/Reset';
 
 const Footer = () => {
 	return (

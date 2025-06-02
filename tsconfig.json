@@ -2,12 +2,7 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./*"],
-			"@components/*": ["components/*"],
-			"@screens/*": ["screens/*"],
-			"@assets/*": ["assets/*"],
-			"@context/*": ["context/*"],
-			"@data/*": ["data/*"]
+			"@/*": ["./*"]
 		},
 		"jsx": "react-native",
 		"module": "esnext",

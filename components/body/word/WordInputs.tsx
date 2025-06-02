@@ -1,8 +1,7 @@
 import { useRef } from 'react';
-
 import type { ChangeEvent, KeyboardEvent } from 'react';
 
-import WordInput from '@components/WordInput';
+import WordInput from './WordInput';
 
 import type { Letter } from '@/types/ordler';
 

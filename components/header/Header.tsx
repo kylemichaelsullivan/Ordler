@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 
-import Reset from '@/components/Reset';
-import DarkMode from '@/components/DarkMode';
+import Reset from '@/components/buttons/Reset';
+import DarkMode from '@/components/buttons/DarkMode';
 
 const Header = () => {
 	return (

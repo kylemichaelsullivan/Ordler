@@ -1,4 +1,5 @@
-import { useOrdler } from '@context/ordler';
+import { useOrdler } from '@/context/ordler';
+
 import WordInputs from './WordInputs';
 import LetterList from './LetterList';
 

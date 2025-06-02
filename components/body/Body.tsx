@@ -1,8 +1,8 @@
-import { View, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
-import Letters from '@components/Letters';
-import Word from '@components/Word';
-import Results from '@components/Results';
+import Letters from './letters/Letters';
+import Word from './word/Word';
+import Results from './results/Results';
 
 const Body = () => {
 	return (

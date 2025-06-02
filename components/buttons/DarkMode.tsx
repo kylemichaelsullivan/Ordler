@@ -3,7 +3,7 @@ import { Pressable } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-import { useTheme } from '@context/theme';
+import { useTheme } from '@/context/theme';
 
 const DarkMode = () => {
 	const { isDarkMode, toggleDarkMode } = useTheme();

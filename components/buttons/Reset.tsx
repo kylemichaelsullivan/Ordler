@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 
-import { useOrdler } from '@context/ordler';
+import { useOrdler } from '@/context/ordler';
 
 const Reset = () => {
 	const { reset } = useOrdler();

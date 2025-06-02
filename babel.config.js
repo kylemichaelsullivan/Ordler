@@ -11,11 +11,6 @@ module.exports = function (api) {
 					root: ['.'],
 					alias: {
 						'@': '.',
-						'@components': './components',
-						'@context': './context',
-						'@data': './data',
-						'@screens': './screens',
-						'@assets': './assets'
 					},
 				},
 			],
