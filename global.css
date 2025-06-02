@@ -16,6 +16,12 @@
 	--tw-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+.min-h-screen-minus-header {
+	min-height: 100vh;
+	margin-top: -8rem;
+	padding-top: 8rem;
+}
+
 /* Light mode colors */
 .has-white-background-color {
 	background-color: #f8f8f8;

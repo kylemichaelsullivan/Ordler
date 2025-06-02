@@ -17,8 +17,8 @@ const AppContent = () => {
 	const { isDarkMode } = useTheme();
 
 	return (
-		<SafeAreaView className={`App flex-1 ${isDarkMode ? 'dark' : ''}`}>
-			<View className='border has-dark-border-color mx-auto w-full max-w-4xl flex-1'>
+		<SafeAreaView className={`App min-h-screen ${isDarkMode ? 'dark' : ''}`}>
+			<View className='border has-dark-border-color mx-auto w-full max-w-4xl min-h-screen flex flex-col'>
 				<Header />
 				<Body />
 				<Footer />

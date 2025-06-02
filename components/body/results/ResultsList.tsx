@@ -8,7 +8,7 @@ type ResultsListProps = {
 
 const ResultsList = ({ words }: ResultsListProps) => {
 	return (
-		<View className='ResultsList grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+		<View className='ResultsList grid grid-cols-4 gap-1 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12'>
 			{words.map((word, index) => (
 				<Result key={index} word={word} />
 			))}
