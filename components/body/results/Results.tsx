@@ -24,7 +24,7 @@ const Results = ({ className }: ResultsProps) => {
 
 	return (
 		<View
-			className={`Results has-light-background-color has-dark-border-color flex-1 border p-4 ${className || ''}`}
+			className={`Results has-light-background-color has-dark-border-color flex-1 border rounded-lg p-4 sm:p-6 md:p-8 ${className || ''}`}
 		>
 			{content}
 		</View>
