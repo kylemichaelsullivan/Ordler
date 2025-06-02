@@ -4,9 +4,9 @@
 
 :root {
 	--color-white: #f8f8f8;
-	--color-light: #e6e7eb;
+	--color-light: #d1d3d8;
 	--color-neutral: #818384;
-	--color-dark: #585c66;
+	--color-dark: #6d717c;
 	--color-black: #121213;
 
 	--color-red: #dc2626;
@@ -34,19 +34,19 @@
 }
 
 .has-light-background-color {
-	background-color: #e6e7eb;
+	background-color: #d1d3d8;
 }
 
 .has-light-border-color {
-	border-color: #e6e7eb;
+	border-color: #d1d3d8;
 }
 
 .has-light-color {
-	color: #e6e7eb;
+	color: #d1d3d8;
 }
 
 .has-light-fill {
-	fill: #e6e7eb;
+	fill: #d1d3d8;
 }
 
 .has-neutral-background-color {
@@ -66,19 +66,19 @@
 }
 
 .has-dark-background-color {
-	background-color: #585c66;
+	background-color: #6d717c;
 }
 
 .has-dark-border-color {
-	border-color: #585c66;
+	border-color: #6d717c;
 }
 
 .has-dark-color {
-	color: #585c66;
+	color: #6d717c;
 }
 
 .has-dark-fill {
-	fill: #585c66;
+	fill: #6d717c;
 }
 
 .has-black-background-color {
@@ -163,35 +163,35 @@
 }
 
 .dark .has-light-background-color {
-	background-color: #585c66;
+	background-color: #6d717c;
 }
 
 .dark .has-light-border-color {
-	border-color: #585c66;
+	border-color: #6d717c;
 }
 
 .dark .has-light-color {
-	color: #585c66;
+	color: #6d717c;
 }
 
 .dark .has-light-fill {
-	fill: #585c66;
+	fill: #6d717c;
 }
 
 .dark .has-dark-background-color {
-	background-color: #e6e7eb;
+	background-color: #d1d3d8;
 }
 
 .dark .has-dark-border-color {
-	border-color: #e6e7eb;
+	border-color: #d1d3d8;
 }
 
 .dark .has-dark-color {
-	color: #e6e7eb;
+	color: #d1d3d8;
 }
 
 .dark .has-dark-fill {
-	fill: #e6e7eb;
+	fill: #d1d3d8;
 }
 
 .dark .has-black-background-color {
