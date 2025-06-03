@@ -18,7 +18,7 @@ const AppContent = () => {
 
 	return (
 		<SafeAreaView className={`App min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-			<View className='border has-dark-border-color mx-auto w-full max-w-4xl min-h-screen flex flex-col'>
+			<View className='border has-dark-border-color mx-auto w-full max-w-4xl min-h-screen'>
 				<Header />
 				<Body />
 				<Footer />
