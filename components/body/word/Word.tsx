@@ -1,20 +1,21 @@
+import { View } from 'react-native';
+
 import { useOrdler } from '@/context/ordler';
 
 import WordInputs from './WordInputs';
-import LetterList from './LetterList';
 
 const Word = () => {
-	const { requiredLetters, requiredLetterPositions, handleRequiredLetterPositionChange } =
+	const { requiredLetterPositions, handleRequiredLetterPositionChange, lettersStatus } =
 		useOrdler();
 
 	return (
-		<div className='Word max-w-full text-center'>
+		<View className='Word max-w-full text-center'>
 			<WordInputs
 				requiredLetterPositions={requiredLetterPositions}
 				handleRequiredLetterPositionChange={handleRequiredLetterPositionChange}
+				lettersStatus={lettersStatus}
 			/>
-			<LetterList letters={requiredLetters} />
-		</div>
+		</View>
 	);
 };
 

@@ -1,43 +1,43 @@
 import { useRef } from 'react';
-import type { ChangeEvent, KeyboardEvent } from 'react';
+import { View, TextInput } from 'react-native';
+import type {
+	NativeSyntheticEvent,
+	TextInputChangeEventData,
+	TextInputKeyPressEventData,
+} from 'react-native';
 
 import WordInput from './WordInput';
-
-import type { Letter } from '@/types/ordler';
+import type { Letter, Status } from '@/types/ordler';
 
 type WordInputsProps = {
-	requiredLetterPositions: string[];
+	requiredLetterPositions: (Letter | '')[];
 	handleRequiredLetterPositionChange: (index: number, letter: Letter | '') => void;
+	lettersStatus: { [key in Letter]: Status };
 };
 
 const WordInputs = ({
 	requiredLetterPositions,
 	handleRequiredLetterPositionChange,
+	lettersStatus,
 }: WordInputsProps) => {
-	const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+	const inputRefs = useRef<(TextInput | null)[]>([]);
 
-	const handleInput = (e: ChangeEvent<HTMLInputElement>, index: number) => {
-		const input = e.target;
-		const value = input.value.toLowerCase();
+	const handleInput = (e: NativeSyntheticEvent<TextInputChangeEventData>, index: number) => {
+		const value = e.nativeEvent.text.toLowerCase();
 
-		if (/^[a-z]$/.test(value)) {
-			input.value = value;
+		// Only allow letters a-z that aren't excluded
+		if (/^[a-z]$/.test(value) && lettersStatus[value as Letter] !== 0) {
 			handleRequiredLetterPositionChange(index, value as Letter);
 			if (index < inputRefs.current.length - 1) {
 				inputRefs.current[index + 1]?.focus();
 			}
 		} else {
-			input.value = '';
 			handleRequiredLetterPositionChange(index, '');
-			if (index > 0) {
-				inputRefs.current[index - 1]?.focus();
-			}
 		}
 	};
 
-	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, index: number) => {
-		if (e.key === 'Backspace' || e.key === 'Delete') {
-			e.preventDefault();
+	const handleKeyDown = (e: NativeSyntheticEvent<TextInputKeyPressEventData>, index: number) => {
+		if (e.nativeEvent.key === 'Backspace' || e.nativeEvent.key === 'Delete') {
 			handleRequiredLetterPositionChange(index, '');
 			if (index > 0) {
 				inputRefs.current[index - 1]?.focus();
@@ -46,9 +46,10 @@ const WordInputs = ({
 	};
 
 	return (
-		<div className='WordInputs max-w-full flex flex-row items-center justify-center gap-2'>
+		<View className='WordInputs max-w-full flex flex-row items-center justify-center gap-2'>
 			{Array.from({ length: 5 }, (_, index) => (
 				<WordInput
+					key={index}
 					index={index}
 					value={requiredLetterPositions[index] || ''}
 					isRequired={!!requiredLetterPositions[index]}
@@ -57,10 +58,9 @@ const WordInputs = ({
 					}}
 					onInput={handleInput}
 					onKeyDown={handleKeyDown}
-					key={index}
 				/>
 			))}
-		</div>
+		</View>
 	);
 };
 
