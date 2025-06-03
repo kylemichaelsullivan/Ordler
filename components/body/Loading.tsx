@@ -1,11 +1,12 @@
+import { View } from 'react-native';
 import '@assets/loading.css';
 
 const Loading = () => (
-	<div className='Loading mx-auto'>
-		{Array.from({ length: 12 }, (_, i) => (
-			<div key={i} />
+	<View className='Loading mx-auto'>
+		{[...Array(12)].map((_, i) => (
+			<View key={i} />
 		))}
-	</div>
+	</View>
 );
 
 export default Loading;
