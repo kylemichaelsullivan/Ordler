@@ -46,7 +46,7 @@ const WordInputs = ({
 	};
 
 	return (
-		<div className='WordInputs flex max-w-full items-center justify-center gap-1'>
+		<div className='WordInputs max-w-full flex flex-row items-center justify-center gap-2'>
 			{Array.from({ length: 5 }, (_, index) => (
 				<WordInput
 					index={index}

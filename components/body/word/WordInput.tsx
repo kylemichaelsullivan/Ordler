@@ -10,11 +10,11 @@ type WordInputProps = {
 };
 
 const WordInput = ({ index, value, isRequired, inputRef, onInput, onKeyDown }: WordInputProps) => {
+	const bgColor = isRequired ? 'has-green-background-color' : 'has-light-background-color';
+
 	return (
 		<input
-			className={`WordInput has-dark-border-color has-black-color h-12 w-12 flex-1 appearance-none border text-center capitalize ${
-				isRequired ? 'has-green-background-color' : 'has-light-background-color'
-			}`}
+			className={`WordInput ${bgColor} has-dark-border-color has-black-color h-12 min-w-12 max-w-14 flex-1 appearance-none border text-center capitalize`}
 			maxLength={1}
 			list='letters'
 			onChange={e => onInput(e, index)}
