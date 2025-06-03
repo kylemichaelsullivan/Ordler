@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useContext, type ReactNode } from 'react';
+import { Keyboard, type KeyboardEvent } from 'react-native';
 
 import { allWords } from '@/data/allWords';
 
@@ -105,16 +106,13 @@ const useWordFiltering = (
 
 const useKeyboardReset = (reset: () => void) => {
 	useEffect(() => {
-		const handleKeyUp = (e: globalThis.KeyboardEvent) => {
-			if (e.key === 'Escape') {
-				reset();
-			}
-		};
+		const subscription = Keyboard.addListener('keyboardDidHide', () => {
+			reset();
+		});
 
-		if (typeof window !== 'undefined') {
-			window.addEventListener('keyup', handleKeyUp);
-			return () => window.removeEventListener('keyup', handleKeyUp);
-		}
+		return () => {
+			subscription.remove();
+		};
 	}, [reset]);
 };
 
@@ -159,9 +157,7 @@ export function OrdlerContextProvider({ children }: OrdlerContextProviderProps) 
 
 	const reset = () => {
 		setState(initialState);
-		if (typeof document !== 'undefined') {
-			document.querySelectorAll('input').forEach((input: HTMLInputElement) => input.blur());
-		}
+		Keyboard.dismiss();
 	};
 
 	useKeyboardReset(reset);
