@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { View, Text } from 'react-native';
 
 import { useOrdler } from '@/context/ordler';
@@ -11,17 +12,17 @@ type LetterProps = {
 	letter: LetterType;
 };
 
-const Letter = ({ letter }: LetterProps) => {
+const Letter = memo(({ letter }: LetterProps) => {
 	const { lettersStatus } = useOrdler();
 	const status = lettersStatus[letter];
 
 	return (
-		<View className='Letter flex-row items-center gap-1'>
+		<View className='Letter flex-row items-center justify-between w-24'>
 			<LetterButtonDown letter={letter} status={status} />
 			<Text className='has-black-color text-lg font-bold'>{letter.toUpperCase()}</Text>
 			<LetterButtonUp letter={letter} status={status} />
 		</View>
 	);
-};
+});
 
 export default Letter;

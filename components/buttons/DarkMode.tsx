@@ -11,15 +11,7 @@ const DarkMode = () => {
 	return (
 		<Pressable
 			onPress={toggleDarkMode}
-			className='DarkMode has-black-fill p-2'
-			style={({ pressed }) => [
-				{
-					cursor: 'pointer',
-					padding: 8,
-					opacity: pressed ? 0.7 : 1,
-					touchAction: 'manipulation',
-				},
-			]}
+			className={`DarkMode has-yellow-fill p-2 cursor-pointer active:opacity-70`}
 		>
 			<FontAwesomeIcon icon={isDarkMode ? faMoon : faSun} color='currentColor' size={16} />
 		</Pressable>

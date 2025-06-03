@@ -13,15 +13,15 @@ type ResultsContentProps = {
 const ResultsContent = ({ words }: ResultsContentProps) => {
 	const { nonNullLettersCount } = useOrdler();
 
-	return (
-		<View className='ResultsContent flex-1'>
-			{nonNullLettersCount < 2 ?
-				<SelectMore />
-			: words.length > 0 ?
-				<ResultsList words={words} />
-			:	<NoResults />}
-		</View>
-	);
+	if (nonNullLettersCount < 2) {
+		return <SelectMore />;
+	}
+
+	if (words.length === 0) {
+		return <NoResults />;
+	}
+
+	return <ResultsList words={words} />;
 };
 
 export default ResultsContent;

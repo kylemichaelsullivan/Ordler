@@ -8,7 +8,7 @@ const Word = () => {
 		useOrdler();
 
 	return (
-		<div className='Word flex max-w-full justify-center gap-1'>
+		<div className='Word max-w-full text-center'>
 			<WordInputs
 				requiredLetterPositions={requiredLetterPositions}
 				handleRequiredLetterPositionChange={handleRequiredLetterPositionChange}
